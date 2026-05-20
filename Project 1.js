@@ -2,19 +2,43 @@ function Alert() {
   alert("こんにちは、神拉麺です！🍜");
 
 document.getElementById('OK').onclick=function(){
-	var name=document.getElementById('name').value.trim();
-	if (name===""){
-		name="(Please fill in your name)";
+	var nama=document.getElementById('nama').value.trim();
+	if (nama===""){
+		nama="(Nama harus diisi)";
 	}
 	var kelas=document.getElementById('kelas').value.trim();
 	if (kelas===""){
-		kelas="(Please fill in your contact)";
+		kelas="(Kelas harus diisi)";
 	}
 	
-	var one=document.getElementById('1').checked ? "Product 1":"";
-	var one=document.getElementById('2').checked ? "Product 2":"";
-	var one=document.getElementById('').checked ? "":"";
+	var one=document.getElementById('one').checked ? "10-12":"";
+	var one=document.getElementById('two').checked ? "13-15":"";
+	var one=document.getElementById('three').checked ? "16-17":"";
 	
-	var hasilText="Nama:" + nama + "Kelas:" + kelas + "\nUmur:" + 1 || 2 || ...;
+	var gender="";
+	var radios=document.getElementByName('gender');
+	for (var i=0; i<radios.length; i++){
+		if(radios[i].checked){
+			gender=radios[i].value;
+		    break;
+		}
+	}
+	if (gender===""){
+		gender="(Mohon masukkan jenis kelamin)";
+	}
+	
+	var grade="";
+	var radios=document.getElementByName('grade');
+	for (var i=0; i<radios.length; i++){
+		if(radios[i].checked){
+			grade=radios[i].value;
+		    break;
+		}
+	}
+	if (grade===""){
+		grade="(Mohon masukkan tingkatan sekolah)";
+	}
+	
+	var hasilText="Nama:" + nama + "Kelas:" + kelas + "\nUmur:" + one || two || three ;
 	document.getElementById('hasil').innerText=hasilText;
 }
